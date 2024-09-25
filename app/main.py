@@ -11,5 +11,9 @@ while running:
     for event in pygame.event.get():
         if event.type ==    pygame.QUIT:
             running = False
+    
+    # Draw the Game
+    display_surface.fill(color=(42, 62, 82)) # Charcoal: 43, 61, 79 / Night: All 10-22
+    pygame.display.update()
 
 pygame.quit()
