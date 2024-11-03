@@ -1,4 +1,6 @@
 import pygame
+# Only importing the function to use for performance
+from os.path import join
 
 # general setup
 pygame.init()
@@ -12,6 +14,9 @@ running = True
 surf = pygame.Surface((50, 50))
 surf.fill('blue')
 x = 100
+
+# Use convert() for better performance, _alpha is added for images that have transparent pixels
+player_sprite = pygame.image.load(join('assets/art', 'b2_godot.png'))
 
 while running:
     for event in pygame.event.get(): # event loop
@@ -28,7 +33,8 @@ while running:
 pygame.quit()
 
 """
-Step 1: Initialize pygame.init() and screen properties, also always include pygame.quit()
+Step 1: Initialize pygame and setup the game window, also always include pygame.quit()
 Step 2: Setup the game event loop
-Step 3: Draw the game objects using surface
+Step 3: Import image using os.path.join() for cross-platform file path compatibility instead of hardcoding paths like "dir/dir/file"
+Step 4: Draw the game objects using surface
 """
